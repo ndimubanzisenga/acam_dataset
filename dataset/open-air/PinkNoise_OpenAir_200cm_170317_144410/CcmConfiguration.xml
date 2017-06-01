@@ -1,0 +1,275 @@
+<CcmConfiguration>
+<Company>Signal Interface Group</Company>
+<VersionInfo>
+<ConfigVersion>
+<Major>0</Major>
+<Minor>9</Minor>
+<Revision>1</Revision>
+</ConfigVersion>
+<ServiceVersion>
+<Major>0</Major>
+<Minor>9</Minor>
+<Revision>1</Revision>
+</ServiceVersion>
+<DllVersion>
+<Major>0</Major>
+<Minor>9</Minor>
+<Revision>1</Revision>
+</DllVersion>
+</VersionInfo>
+<Hardware>
+<Arrays>
+<NumArrays>1</NumArrays>
+<Array0>
+<Controller>
+<Model>CCM 2000</Model>
+<Desc>Controller Module</Desc>
+<Sn>10144</Sn>
+<FirmwareRev>2271560481</FirmwareRev>
+</Controller>
+<Settings>
+<SampleRate>50000</SampleRate>
+<Calibration>
+<Enabled>1</Enabled><Coefficients>
+<NumCoeff>40</NumCoeff>
+<Coeff0>0.500000</Coeff0>
+<Coeff1>0.500000</Coeff1>
+<Coeff2>0.500000</Coeff2>
+<Coeff3>0.500000</Coeff3>
+<Coeff4>0.500000</Coeff4>
+<Coeff5>0.500000</Coeff5>
+<Coeff6>0.500000</Coeff6>
+<Coeff7>0.500000</Coeff7>
+<Coeff8>0.500000</Coeff8>
+<Coeff9>0.500000</Coeff9>
+<Coeff10>0.500000</Coeff10>
+<Coeff11>0.500000</Coeff11>
+<Coeff12>0.500000</Coeff12>
+<Coeff13>0.500000</Coeff13>
+<Coeff14>0.500000</Coeff14>
+<Coeff15>0.500000</Coeff15>
+<Coeff16>0.500000</Coeff16>
+<Coeff17>0.500000</Coeff17>
+<Coeff18>0.500000</Coeff18>
+<Coeff19>0.500000</Coeff19>
+<Coeff20>0.500000</Coeff20>
+<Coeff21>0.500000</Coeff21>
+<Coeff22>0.500000</Coeff22>
+<Coeff23>0.500000</Coeff23>
+<Coeff24>0.500000</Coeff24>
+<Coeff25>0.500000</Coeff25>
+<Coeff26>0.500000</Coeff26>
+<Coeff27>0.500000</Coeff27>
+<Coeff28>0.500000</Coeff28>
+<Coeff29>0.500000</Coeff29>
+<Coeff30>0.500000</Coeff30>
+<Coeff31>0.500000</Coeff31>
+<Coeff32>0.500000</Coeff32>
+<Coeff33>0.500000</Coeff33>
+<Coeff34>0.500000</Coeff34>
+<Coeff35>0.500000</Coeff35>
+<Coeff36>0.500000</Coeff36>
+<Coeff37>0.500000</Coeff37>
+<Coeff38>0.500000</Coeff38>
+<Coeff39>0.500000</Coeff39>
+</Coefficients>
+</Calibration>
+<TimeDomain>
+<Enabled>1</Enabled>
+<BlockSize>512</BlockSize>
+<Skip>0</Skip>
+<Take>1</Take>
+<FrameBuffering><Enabled>0</Enabled>
+<NumFrames>5</NumFrames>
+</FrameBuffering>
+</TimeDomain>
+<FrequencyDomain>
+<Enabled>0</Enabled>
+<Overlap>0</Overlap>
+<BlockSize>256</BlockSize>
+<Skip>0</Skip>
+<Take>1</Take>
+<FrameBuffering>
+<Enabled>0</Enabled>
+<NumFrames>5</NumFrames>
+</FrameBuffering>
+<Window>
+<WindowType>2</WindowType>
+</Window>
+</FrequencyDomain>
+</Settings>
+<MicrophonePcb>
+<NumPcb>1</NumPcb>
+<Pcb0>
+<Microphones>
+<NumMics>40</NumMics>
+<Coordinates>
+<Units>mm</Units>
+<Mic0>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic0>
+<Mic1>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic1>
+<Mic2>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic2>
+<Mic3>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic3>
+<Mic4>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic4>
+<Mic5>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic5>
+<Mic6>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic6>
+<Mic7>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic7>
+<Mic8>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic8>
+<Mic9>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic9>
+<Mic10>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic10>
+<Mic11>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic11>
+<Mic12>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic12>
+<Mic13>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic13>
+<Mic14>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic14>
+<Mic15>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic15>
+<Mic16>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic16>
+<Mic17>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic17>
+<Mic18>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic18>
+<Mic19>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic19>
+<Mic20>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic20>
+<Mic21>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic21>
+<Mic22>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic22>
+<Mic23>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic23>
+<Mic24>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic24>
+<Mic25>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic25>
+<Mic26>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic26>
+<Mic27>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic27>
+<Mic28>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic28>
+<Mic29>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic29>
+<Mic30>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic30>
+<Mic31>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic31>
+<Mic32>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic32>
+<Mic33>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic33>
+<Mic34>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic34>
+<Mic35>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic35>
+<Mic36>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic36>
+<Mic37>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic37>
+<Mic38>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic38>
+<Mic39>
+<X>  55.0</X>
+<Y>-3163.8</Y>
+</Mic39>
+</Coordinates>
+</Microphones>
+</Pcb0>
+</MicrophonePcb>
+</Array0>
+</Arrays>
+</Hardware>
+</CcmConfiguration>
