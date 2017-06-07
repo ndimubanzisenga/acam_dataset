@@ -9,7 +9,9 @@ Each dataset consists of 5 files:
 
 This dataset can be used to test sound source localization techniques based on microphone arrays. The images of the scene provide the ground truth against which the accuracy of the tested sound source localization techniques can be compared.
 A Python script to test this dataset is provided in the "src" folder. This requires the installation of the "Acoular" framework. To run this script the dataset name and the sound source localization method to be used should be passed as arguments.
+
 `python Bftest.py leakage 1`
+
 In this test implementation:
 * 1 : runs the test with the Funtional Beamforming method
 * 2 : runs the test with the Conventional Beamforming method
