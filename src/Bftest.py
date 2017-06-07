@@ -17,7 +17,20 @@ DB_RANGE = 15
 TITLE = None
 
 class Data():
+    """
+    Class to store microphone array and camera image data, along with the necessary metadata
+    """
+
     def __init__(self, data_file_name, img_file_name, sample_freq=50000):
+        """
+        Initialize the Data class
+        Parameters
+        ----------
+        data_file_name : name of the microphone array signal data file path
+        img_file_name : name of the camera image file path
+        sample_freq : sampling frequency at which the data was sampled
+        """
+
         self.time_data = None
         self.num_data_observations = 0
         self.num_data_channels = 0
@@ -25,6 +38,10 @@ class Data():
         self.img_setup = cv.imread(img_file_name) #ToDo: point to video file instead of simple image
                 
         def init_data_attributes(data_file_name):
+            """
+            Initialize Data class attributes
+            """
+
             data = np.loadtxt(data_file_name, delimiter=',')
             data = data * (20 / (float(2**31 )))
             self.time_data = data
@@ -34,9 +51,22 @@ class Data():
 
 
 
-#ToDo: dictionary to select beamformer technique
 class BfTest():
+    """
+    Class to test direct acoustic localization methods on an instance of the Data class
+    """
+
     def __init__(self, data, num_bf_data_scans, bf_block_size):
+        """
+        Initialize the BfTest Class.
+        Parameters
+        ----------
+        data : instance of the Data class
+        num_bf_data_scans : number of samples on which to compute the acoustic map
+        bf_block_size : block size to be used for the CSM computation, and for other
+                        operations requiring spliting of the data
+        """
+
         self.data = data
         self.num_bf_data_scans = num_bf_data_scans
         self.num_bf_data_frames = data.num_data_observations / num_bf_data_scans
@@ -46,6 +76,19 @@ class BfTest():
         
     
     def run_bf_test(self, freq, z, bf_technique):
+        """
+        Estimate the acoustic map from the class data.
+        Parameters:
+        ----------
+        freq : frequency to be localized
+        z : grid depth
+        bf_technique : selector for the direct method to be used
+
+        Return:
+        -------
+        Lm, grid : acoustic map and the grid from which it was estimated
+        """
+
         def init_time_sample_obj():
             time_sample.numsamples = self.num_bf_data_scans
             time_sample.numchannels = self.data.num_data_channels
@@ -62,9 +105,7 @@ class BfTest():
             
         def compute_bf_map(ts):
             Lm = np.empty((0,0))
-            #ind_low = 1
-            #ind_high = 50
-            c = 343. #346.04
+            c = 343.
             bf = None
             ps = acoular.EigSpectra(time_data=ts, window='Hanning', block_size=self.bf_block_size, cached=False)
             if bf_technique == 1:
@@ -82,6 +123,10 @@ class BfTest():
             return Lm
 
         def visualize_bf_map(Lm, count):
+            """
+            Visualize acoustic map for each data frame
+            """
+
             Lm_ = Lm
             label = str(freq) + '_' + str(count)
             m = Lm.min()
@@ -100,7 +145,7 @@ class BfTest():
 
         time_sample = acoular.TimeSamples()
         init_time_sample_obj()
-        mic_geom = acoular.MicGeom(from_file='./../../../data/mic_configurations/acam_array_40.xml')
+        mic_geom = acoular.MicGeom(from_file='./MicArray_layout/acam_array_40.xml')
         bf_grid_Z = z
         rect_grid = init_bf_grid(bf_grid_Z)
         octave_band = 3
@@ -115,8 +160,7 @@ class BfTest():
             print("Max SPL : {0}  and Min SPL : {1}").format(Lm.max(), Lm.min())
 
             if VISUALIZE_RESULTS:
-                #visualize_bf_map(Lm, count)
-                pass
+                visualize_bf_map(Lm, count)
 
             if count == 0:
                 result_Lm = Lm
@@ -136,7 +180,14 @@ class BfTest():
 
 
 def visualize_results(results, result_dir):
-    #plt.subplots(nrows=len(results), ncols=4)
+    """
+    Visualize results for the whole dataset
+    Parameters:
+    -----------
+    results : list of acoustic map and grid for all the evaluated frequencies
+    result_dir : directory where results are to be saved
+    """
+
     Lm_MinMax_list = list()
     for (backgound_img, Lm_list, grid, stats) in results:
         min_Lm = 350
@@ -167,17 +218,6 @@ def visualize_results(results, result_dir):
         CB.ax.set_ylabel('SPL [dB]')
         i = i + 1
 
-    # Plot and save statistics
-    '''ii = 0
-    for (backgound_img, Lm_list, grid_list, stats) in results:
-        plt.figure(ii)
-        plt.grid(True)
-        plt.xlabel("Iteration")
-        plt.ylabel("Time [s]")
-        plt.title(TITLE)
-        plt.plot(stats)
-        ii = ii + 1'''
-
     # Save results
     if SAVE_RESULTS:
         if not exists(result_dir):
@@ -187,7 +227,14 @@ def visualize_results(results, result_dir):
 
 
 def test_dataset(base_directory, bf_technique):
-    #base_directory = '../../../../test_folder/leakage/'
+    """
+    Test direct methods on a dataset
+    Parameters:
+    ----------
+    base_directory : directory in which the dataset  is saved
+    bf_technique : selector of the direct method to be used
+    """
+
     num_scans = 512 * 50
     block_size = 512
     freqs = [2500, 5000, 8000, 10000]
@@ -233,9 +280,9 @@ def main():
     else:
         print("#### Dataset :{0} #####").format(sys.argv[1])
 
-    base_directory = '../../../../test_folder/' + str(sys.argv[1]) + '/'
+    base_directory = '../../dataset/' + str(sys.argv[1]) + '/'
     bf_technique = int(sys.argv[2]) # 1: for Functional BF, and 2: for Conventional BF
-    result_dir = '../../../docs/results/' + str(bf_technique) + '_' + str(sys.argv[1])
+    result_dir = '../../results/' + str(bf_technique) + '_' + str(sys.argv[1])
 
     results = test_dataset(base_directory, bf_technique)
 
